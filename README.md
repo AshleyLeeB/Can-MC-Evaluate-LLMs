@@ -26,10 +26,13 @@ The samples of the benchmarks we use can be found in `Datasets`.
 The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). 
 
 ## Are LLMs sensitive to the order of candidate answers?
-We first investigat the impact of the order of the candidate answers in the evaluation of LLM on MCQ datasets. We find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the following figure.
+We first find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the following figure. We have two cases of option order, in CASE1, the option numbering is ’ABCD’, and in CASE2, theo ption numbering is ’BACD’. It is worth noting that when changing the option numbering, the contents of each option and their positions will be adjusted accordingly, rather than simply altering the option numbering, as shown in Figure 1. The ground truth is always D. The LLM prefers wrong options in the first position in the ARC dataset.
+<figure style="text-align: center;">
+  <img src="figs/order_preference_3.jpg" alt="Order Preference Image">
+  <figcaption style="text-align: center;">Order Preference Image</figcaption>
+</figure>
 
-![order_preference](figs/order_preference_3.pdf)
-
+To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test (McHugh, 2013) for significance testing.
 ## Multiple Choice Questions vs Long Form Generation Questions
 
 **Authors**:
