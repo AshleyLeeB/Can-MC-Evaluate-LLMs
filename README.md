@@ -26,8 +26,9 @@ The samples of the benchmarks we use can be found in `Datasets`.
 The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). 
 
 ## Are LLMs sensitive to the order of candidate answers?
-We first investigat the impact of the order of the candidate answers in the evaluation of LLM on MCQ datasets. We find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the Figure 1.
+We first investigat the impact of the order of the candidate answers in the evaluation of LLM on MCQ datasets. We find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the following figure.
 
+![order_preference](figs/order_preference_3.pdf)
 
 ## Multiple Choice Questions vs Long Form Generation Questions
 
