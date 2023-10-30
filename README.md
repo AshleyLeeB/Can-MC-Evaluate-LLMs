@@ -7,7 +7,7 @@
   </tr>
 </table>
 
-Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and abilities of large language models (LLMs) because of their simple format and efficient inference process. However, there are concerns about **whether MCQs can truly assess the true capabilities of LLMs**. This is particularly relevant because LLMs are often used in knowledge-intensive scenarios where they are expected to generate long-form content. Using MCQs for evaluation can introduce a misalignment between what is being tested and what is actually required in these scenarios.
+Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and abilities of large language models (LLMs) because of their simple format and efficient inference process. However, there are concerns about **whether MCQs can truly assess the true capabilities of LLMs**. This is particularly relevant because LLMs are often used in knowledge-intensive scenarios where they are expected to generate long-form content. Using MCQs for evaluation can introduce a misalignment between what is being tested and what is actually required in these scenarios. So we do some researches on **Are LLMs sensitive to the order of candidate answers?** and **Multiple Choice Questions vs Long Form Generation Questions**, resulting in some interesting things. 
 
 **Authors**:
 
