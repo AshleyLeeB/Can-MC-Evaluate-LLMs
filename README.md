@@ -26,17 +26,18 @@ Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and
 
 ## Table of Contents
 1. [Overview](#1)
-2. [Datasets and Models](#datasets-and-models)
-3. [Are LLMs sensitive to the order of candidate answers](#are-LLMs-sensitive-to-the-order-of-candidate-answers)
-4. [Multiple Choice Questions vs Long Form Generation Questions](#multiple-choice-questions-vs-long-form-generation-questions)
+2. [Datasets and Models](#2)
+3. [Are LLMs sensitive to the order of candidate answers?](#3)
+4. [Multiple Choice Questions vs Long Form Generation Questions](#4)
 5. [Citation](#citation)
 
 <h2 id="1">Overview</h2>
-We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the Chi-square test of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their direct outputs, token logits, and embeddings[Embeddings](#embeddings). We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks, and we preliminarily deny the idea "the more consistent, the more accurate". Moreover, MCQs may be less reliable than LFGQs in term of expected calibration error. Our analysis reveals that, the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
+We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the Chi-square test of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their direct outputs, [token logits](#6), and embeddings. We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks, and we preliminarily deny the idea "the more consistent, the more accurate". Moreover, MCQs may be less reliable than LFGQs in term of expected calibration error. Our analysis reveals that, the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
 
-## Datasets and Models
+<h2 id="2">Datasets and Models</h2>
 To investigate the preferences of LLMs to the order of options and the differences between MCQs and LFGQs, we conduct experiments on six evaluation benchmarks.
 The evaluation benchmarks that we use are listed below:
+
 | **Source**                                                                                   | **Language**   | **Size**      |
 |----------------------------------------------------------------------------------------------|----------------|--------------:|
 |[CARE-MI](https://github.com/Meetyou-AI-Lab/CARE-MI)   | ZH           |            1612 |
@@ -50,18 +51,19 @@ The samples of the benchmarks we use can be found in `Datasets`.
 
 The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). 
 
-## Are LLMs sensitive to the order of candidate answers?
+<h2 id="3">Are LLMs sensitive to the order of candidate answers?</h2>
 We first find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the following figure. We have two cases of option order, in CASE1, the option numbering is ’ABCD’, and in CASE2, theo ption numbering is ’BACD’. It is worth noting that when changing the option numbering, the contents of each option and their positions will be adjusted accordingly, rather than simply altering the option numbering, as shown in Figure 1. The ground truth is always D. The LLM prefers wrong options in the first position in the ARC dataset.
 <figure style="text-align: center;">
   <img src="figs/order_preference_3.jpg" alt="Order Preference Image">
   <figcaption style="text-align: center;">Order Preference Image</figcaption>
 </figure>
 
-To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test (McHugh, 2013) for significance testing.
-## Multiple Choice Questions vs Long Form Generation Questions
-### Direct Output
-### Token Logits
-### Embeddings
+To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)](https://github.com/Meetyou-AI-Lab/CARE-MI) for significance testing.
+<h2 id="4">Multiple Choice Questions vs Long Form Generation Questions</h2>
+<h3 id="5">Direct Output</h3>
+<h3 id="6">Token Logits</h3>
+<h3 id="7">Embeddings</h3>
+
 ## Citation
 
 **If the paper, codes, or the dataset inspire you, please cite us:**
