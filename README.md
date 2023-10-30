@@ -7,7 +7,7 @@
   </tr>
 </table>
 
-Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and abilities of large language models (LLMs) because of their simple format and efficient inference process. However, there are concerns about **whether MCQs can truly assess the true capabilities of LLMs**. This is particularly relevant because LLMs are often used in knowledge-intensive scenarios where they are expected to generate long-form content. Using MCQs for evaluation can introduce a misalignment between what is being tested and what is actually required in these scenarios. So we do some researches on **Are LLMs sensitive to the order of candidate answers?** and **Multiple Choice Questions vs Long Form Generation Questions**, resulting in some interesting things. 
+Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and abilities of large language models (LLMs) because of their simple format and efficient inference process. However, there are concerns about **whether MCQs can truly assess the true capabilities of LLMs**. This is particularly relevant because LLMs are often used in knowledge-intensive scenarios where they are expected to generate long-form content. Using MCQs for evaluation can introduce a misalignment between what is being tested and what is actually required in these scenarios. So we do some researches on [Are LLMs sensitive to the order of candidate answers?](#3) and [Multiple Choice Questions vs Long Form Generation Questions](#4), resulting in some interesting things. 
 
 **Authors**:
 
@@ -32,7 +32,8 @@ Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and
 5. [Citation](#citation)
 
 <h2 id="1">Overview</h2>
-We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the Chi-square test of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their direct outputs, token logits, and embeddings. We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks, and we preliminarily deny the idea "the more consistent, the more accurate". Moreover, MCQs may be less reliable than LFGQs in term of expected calibration error. Our analysis reveals that, the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
+
+We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the **Chi-square test** of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their [direct outputs](#5), [token logits](#6), and [embeddings](#7). We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks. Moreover, we compare MCQs with LFGQs and True/False questions (TFQs) in term of expected calibration error. Our analysis also wonder that whether the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
 
 <h2 id="2">Datasets and Models</h2>
 To investigate the preferences of LLMs to the order of options and the differences between MCQs and LFGQs, we conduct experiments on six evaluation benchmarks.
@@ -49,6 +50,8 @@ The evaluation benchmarks that we use are listed below:
 
 The samples of the benchmarks CARE-MI and MATH we use can be found in `Datasets`.
 
+We target decoder-only models since this architecture has become the dominant choices for recent LLMs. We utilize various models for conducting different experiments, tailoring our choices based on the specific goals of each experiment. The application of the LLMs for each experiment is summarized in the following Table:
+
 |  **Model** | **Order Sensitivity** | **Patterns Decomposition** | **Direct Output** | **Token Logits** | **Embeddings** |
 |------------|-----------------------|----------------------------|-------------------|------------------|---------------:|
 | [GPT-3.5-turbo](https://openai.com/blog/introducing-chatgpt-and-whisper-apis) | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark:| |
@@ -64,13 +67,12 @@ The samples of the benchmarks CARE-MI and MATH we use can be found in `Datasets`
 The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). 
 
 <h2 id="3">Are LLMs sensitive to the order of candidate answers?</h2>
-We first find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the following figure. We have two cases of option order, in CASE1, the option numbering is ’ABCD’, and in CASE2, theo ption numbering is ’BACD’. It is worth noting that when changing the option numbering, the contents of each option and their positions will be adjusted accordingly, rather than simply altering the option numbering, as shown in Figure 1. The ground truth is always D. The LLM prefers wrong options in the first position in the ARC dataset.
+We first find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the following figure. We have two cases of option order, in CASE1, the option numbering is ’ABCD’, and in CASE2, theo ption numbering is ’BACD’. The ground truth is always D. The LLM prefers wrong options in the first position in the ARC dataset.
 <figure style="text-align: center;">
   <img src="figs/order_preference_3.jpg" alt="Order Preference Image">
-  <figcaption style="text-align: center;">Order Preference Image</figcaption>
 </figure>
 
-To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)]([https://github.com/Meetyou-AI-Lab/CARE-MI](https://www.biochemia-medica.com/en/journal/23/2/10.11613/BM.2013.018)) for significance testing, the results and code can be found in `Chi-Square test`. The following table present the results of the rearrangement of options makes LLMs output different answers. 
+To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)](https://www.biochemia-medica.com/en/journal/23/2/10.11613/BM.2013.018) for significance testing, the table of results and code can be found in `Chi-Square test`. The following table present the results of the rearrangement of options makes LLMs output different answers:
 
 | Sou. | Met. | GPT3.5 | GPT4 | ChatGLM |
 | ---  | ---  | ---    | ---  | ---     |
@@ -91,11 +93,17 @@ To determine if there are significant differences in the options chosen by the L
 |      | Acc   | 0.597   | 0.780  | 0.480  |
 |      | Gap   | (+0.00) | (-0.023) | (-0.043) |
 
-* $P<0.05$ ** $P<0.001$, $P$ in bold are larger than significance level $\alpha$. Sou. stands for the sources of the datasets, Met. represents the four metrics: $X^2$, $P$, accuracy and the accuracy gap. 
+* $P<0.05$ ** $P<0.001$, $P$ in bold are larger than significance level $\alpha$. **Sou.** stands for the sources of the datasets, **Met.** represents the four metrics: $X^2$, $P$, accuracy and the accuracy gap.
+
+From the table above, we know that the rearrangement of options makes LLMs choices differ in significance, resulting in instability of the accuracy evaluation. High accuracy can mitigate significant differencesn to some extent. Moreover, There is no evident correlation between the ac- curacy gap and the original accuracy.
 
 <h2 id="4">Multiple Choice Questions vs Long Form Generation Questions</h2>
+
 <h3 id="5">Direct Output</h3>
 <h3 id="6">Token Logits</h3>
+<h4 id="8">Unified confidence calculation</h4>
+<h4 id="9">Expected Calibration Error</h4>
+
 
 <h3 id="7">Embeddings</h3>
 
