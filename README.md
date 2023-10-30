@@ -49,6 +49,17 @@ The evaluation benchmarks that we use are listed below:
 
 The samples of the benchmarks we use can be found in `Datasets`.
 
+|  **Model** | **Order Sensitivity** | **Patterns Decomposition** | **Direct Output** | **Token Logits** | **Embeddings** |
+|------------|-----------------------|----------------------------|-------------------|------------------|---------------:|
+| GPT-3.5-turbo | X  | X | X |X | X|
+| GPT-4 |:heavy_check_mark:| |  |  |   |  
+| ChatGLM-6B |  | |  | | |
+| Slm-tuned-\alpha |  |  |  | | | 
+| RedPajama  |   |   |  | | | 
+| Dolly  |   |   |  | | |  
+| Vicuna |   |   |  | | |  
+| Open-llama |   |   |  | | |  
+
 The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). 
 
 <h2 id="3">Are LLMs sensitive to the order of candidate answers?</h2>
@@ -58,7 +69,29 @@ We first find that when the LLMs are presented with some options in different or
   <figcaption style="text-align: center;">Order Preference Image</figcaption>
 </figure>
 
-To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)](https://github.com/Meetyou-AI-Lab/CARE-MI) for significance testing.
+To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)]([https://github.com/Meetyou-AI-Lab/CARE-MI](https://www.biochemia-medica.com/en/journal/23/2/10.11613/BM.2013.018)) for significance testing, the results and code can be found in `Chi-Square test`. The following table present the results of the rearrangement of options makes LLMs output different answers. 
+
+| Sou. | Met. | GPT3.5 | GPT4 | ChatGLM |
+| ---  | ---  | ---    | ---  | ---     |
+| <div align="center">CARE-MI</div>| $X^2$ | 144.192 | 15.660 | 27.605 |
+|        | $P$   | 0.000** | 0.001* | 0.000** |
+|        | Acc   | 0.203   | 0.637  | 0.378   |
+|        | Gap   | (-0.043) | (-0.029) | (-0.116) |
+| <div align="center">M3KE</div>| $X^2$ | 90.308 | 20.829 | 12.377 |
+|       | $P$   | 0.000** | 0.000** | 0.006** |
+|       | Acc   | 0.381   | 0.632   | 0.411   |
+|       | Gap   | (-0.030) | (-0.017) | (+0.014) |
+| <div align="center">ARC</div> | $X^2$ | 36.515 | 2.681 | 10.511 |
+|     | $P$   | 0.000** | 0.443  | 0.015* |
+|     | Acc   | 0.512   | 0.935  | 0.553  |
+|     | Gap   | (+0.148) | (-0.031) | (-0.116) |
+| <div align="center">MATH</div> | $X^2$ | 25.129 | 4.513 | 90.566 |
+|      | $P$   | 0.000** | 0.211  | 0.000** |
+|      | Acc   | 0.597   | 0.780  | 0.480  |
+|      | Gap   | (+0.00) | (-0.023) | (-0.043) |
+
+* $P<0.05$ ** $P<0.001$, $P$ in bold are larger than significance level $\alpha$. Sou. stands for the sources of the datasets, Met. represents the four metrics: $X^2$, $P$, accuracy and the accuracy gap. 
+
 <h2 id="4">Multiple Choice Questions vs Long Form Generation Questions</h2>
 <h3 id="5">Direct Output</h3>
 <h3 id="6">Token Logits</h3>
