@@ -95,7 +95,7 @@ To determine if there are significant differences in the options chosen by the L
 
 * $P<0.05$ ** $P<0.001$, $P$ in bold are larger than significance level $\alpha$. **Sou.** stands for the sources of the datasets, **Met.** represents the four metrics: $X^2$, $P$, accuracy and the accuracy gap.
 
-From the table above, we know that the rearrangement of options makes LLMs choices differ in significance, resulting in instability of the accuracy evaluation. High accuracy can mitigate significant differencesn to some extent. Moreover, There is no evident correlation between the ac- curacy gap and the original accuracy.
+From the table above, we know that the rearrangement of options makes LLMs choices differ in significance, resulting in instability of the accuracy evaluation. High accuracy can mitigate significant differencesn to some extent. Moreover, There is no evident correlation between the accuracy gap and the original accuracy.
 
 <h2 id="4">Multiple Choice Questions vs Long Form Generation Questions</h2>
 
@@ -107,6 +107,29 @@ From the table above, we know that the rearrangement of options makes LLMs choic
 
 <h3 id="7">Embeddings</h3>
 
+The code can be found in `Embeddings`.
+
+To setup the environment for the codes in this repository, run:
+
+```
+git clone https://github.com/AshleyLeeB/Can-MC-Evaluate-
+conda create -n test python=3.8.16
+conda activate test
+cd Embeddings
+pip install -r requirements.txt
+```
+First, you can download the models you want:
+```
+cd scripts
+sh download_models.sh 
+```
+
+Second, you get the activations of the model:
+```
+cd src
+python get_activations.py
+```
+Then, we can visualize the features through t-Distributed stochastic neighbor embedding for dimensionality reduction. 
 ## Citation
 
 **If the paper, codes, or the dataset inspire you, please cite us:**
