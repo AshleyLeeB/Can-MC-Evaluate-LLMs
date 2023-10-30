@@ -8,8 +8,31 @@
 </table>
 
 Multiple-choice questions (MCQs) are widely used in knowledge ability evaluation of large language models (LLMs) due to their simplicity in form and efficiency during inference. However, concerns have been raised regarding whether MCQs can really reveal the true ability of LLMs; specifically, since LLMs are usually utilized in knowledge-intensive scenarios where the models are required to do long-form generation (LFG), using MCQs for evaluation naturally introduces misalignment between what is tested and what is needed. 
+**Authors**:
 
-## Background and Experimental Details
+<div style="overflow: hidden;">
+  <ul>
+    <li>Wangyue Li  (<a href="mailto:alee90792@gmail.com">alee90792@gmail.com</a>)
+    <li>Liangzhi Li (<a href="mailto:liliangzhi@xiaoyouzi.com">liliangzhi@xiaoyouzi.com</a>)
+    <li>Tong Xiang  (<a href="mailto:xiangtong@xiaoyouzi.com">xiangtong@xiaoyouzi.com</a>)
+    <li>Xiao Liu (<a href="mailto:liuxiao@xiaoyouzi.com">liuxiao@xiaoyouzi.com</a>)
+    <li>Wei Deng (<a href="mailto:dengwei@swufe.edu.cn">dengwei@swufe.edu.cn</a>)
+    <li>Noa Garcia  (<a href="mailto:noagarcia@ids.osaka-u.ac.jp">noagarcia@ids.osaka-u.ac.jp</a>)<sup>*</sup>
+  </ul>
+</div>
+
+<sup>*</sup>Corresponding author.
+
+## Table of Contents
+1. [Overview](#overview)
+2. [Datasets and Models](#datasets-and-models)
+3. [Are LLMs sensitive to the order of candidate answers?](#are-LLMs-sensitive-to-the-order-of-candidate-answers-?)
+4. [Multiple Choice Questions vs Long Form Generation Questions](#multiple-choice-questions-vs-long-form-generation-questions)
+5. [Citation](#citation)
+
+## Overview
+We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the order sensitivity test indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their direct outputs, token logits, and embeddings. Experiment results show that the answer between MCQs and LFGQs exhibit relatively low correlation for the same question. We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks, and we preliminarily deny the idea "the more consistent, the more accurate". Moreover, MCQs may be less reliable than LFGQs in term of expected calibration error. Our analysis reveals that, the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
+## Datasets and Models
 To investigate the preferences of LLMs to the order of options and the differences between MCQs and LFGQs, we conduct experiments on six evaluation benchmarks.
 The evaluation benchmarks that we use are listed below:
 | **Source**                                                                                   | **Language**   | **Size**      |
@@ -34,18 +57,15 @@ We first find that when the LLMs are presented with some options in different or
 
 To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test (McHugh, 2013) for significance testing.
 ## Multiple Choice Questions vs Long Form Generation Questions
+## Citation
 
-**Authors**:
+**If the paper, codes, or the dataset inspire you, please cite us:**
 
-<div style="overflow: hidden;">
-  <ul>
-    <li>Wangyue Li  (<a href="mailto:alee90792@gmail.com">alee90792@gmail.com</a>)
-    <li>Liangzhi Li (<a href="mailto:liliangzhi@xiaoyouzi.com">liliangzhi@xiaoyouzi.com</a>)
-    <li>Tong Xiang  (<a href="mailto:xiangtong@xiaoyouzi.com">xiangtong@xiaoyouzi.com</a>)
-    <li>Xiao Liu (<a href="mailto:liuxiao@xiaoyouzi.com">liuxiao@xiaoyouzi.com</a>)
-    <li>Wei Deng (<a href="mailto:dengwei@swufe.edu.cn">dengwei@swufe.edu.cn</a>)
-    <li>Noa Garcia  (<a href="mailto:noagarcia@ids.osaka-u.ac.jp">noagarcia@ids.osaka-u.ac.jp</a>)<sup>*</sup>
-  </ul>
-</div>
-
-<sup>*</sup>Corresponding author.
+```
+@article{XXX
+  title={Can multiple-choice questions really be useful in detecting the abilities of LLMs?},
+  author={XXX},
+  journal={arXiv preprint arXiv:XXXX},
+  year={2023}
+}
+```
