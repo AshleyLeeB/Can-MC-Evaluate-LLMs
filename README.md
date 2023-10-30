@@ -47,18 +47,19 @@ The evaluation benchmarks that we use are listed below:
 |[ARC](https://arxiv.org/abs/1803.05457)                 | EN             |           7,787 |
 |[MATH]                                                | EN           |           300 |
 
-The samples of the benchmarks we use can be found in `Datasets`.
+The samples of the benchmarks CARE-MI and MATH we use can be found in `Datasets`.
 
 |  **Model** | **Order Sensitivity** | **Patterns Decomposition** | **Direct Output** | **Token Logits** | **Embeddings** |
 |------------|-----------------------|----------------------------|-------------------|------------------|---------------:|
-| GPT-3.5-turbo | X  | X | X |X | X|
-| GPT-4 |:heavy_check_mark:| |  |  |   |  
-| ChatGLM-6B |  | |  | | |
-| Slm-tuned-\alpha |  |  |  | | | 
-| RedPajama  |   |   |  | | | 
-| Dolly  |   |   |  | | |  
-| Vicuna |   |   |  | | |  
-| Open-llama |   |   |  | | |  
+| [GPT-3.5-turbo](https://openai.com/blog/introducing-chatgpt-and-whisper-apis) | :heavy_check_mark:  | :heavy_check_mark: | :heavy_check_mark: |:heavy_check_mark:| |
+| [GPT-4](https://doi.org/10.48550/arXiv.2303.08774) |:heavy_check_mark:|:heavy_check_mark: | :heavy_check_mark: |  |   |  
+| [ChatGLM-6B](https://github.com/THUDM/ChatGLM-6B) | :heavy_check_mark: | :heavy_check_mark:| :heavy_check_mark: | | |
+| [Stablelm-tuned-α-3/7B](https://replicate.com/stability-ai/stablelm-tuned-alpha-7b)  |  |  |  | | :heavy_check_mark:| 
+| [RedPajama-INCITE-3B-v1](https://huggingface.co/togethercomputer/RedPajama-INCITE-Instruct-3B-v1)  |   |   |  | | :heavy_check_mark:| 
+| [Dolly-v2-2/7/12B](https://www.databricks.com/blog/2023/04/12/dolly-first-open-commercially-viable-instruction-tuned-llm)  |   |   |  | |:heavy_check_mark: |  
+| [Vicuna-7b-v1.3](https://codescrum.medium.com/vicuna-an-impressive-open-source-chatbot-matching-gpt-4-with-90-chatgpt-quality-41bbb22668bf) |   |   |  | |:heavy_check_mark: |  
+| [Open-llama-3/7B](https://doi.org/10.48550/arXiv.2302.13971) |   |   |  | | :heavy_check_mark:|  
+| [Llama-2-7b-chat-hf](https://arxiv.org/abs/2307.09288) |   |   |  | | :heavy_check_mark:| 
 
 The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). 
 
