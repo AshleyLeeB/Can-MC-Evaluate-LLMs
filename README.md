@@ -120,6 +120,8 @@ pip install -r requirements.txt
 ```
 First, you can download the models you want:
 ```
+sudo apt-get install git-lfs
+git lfs install
 cd scripts
 sh download_models.sh 
 ```
