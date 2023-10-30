@@ -32,7 +32,7 @@ Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and
 5. [Citation](#citation)
 
 <h2 id="1">Overview</h2>
-We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the Chi-square test of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their direct outputs, [token logits](#token_logits), and embeddings. We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks, and we preliminarily deny the idea "the more consistent, the more accurate". Moreover, MCQs may be less reliable than LFGQs in term of expected calibration error. Our analysis reveals that, the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
+We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the Chi-square test of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their direct outputs, token logits, and embeddings. We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks, and we preliminarily deny the idea "the more consistent, the more accurate". Moreover, MCQs may be less reliable than LFGQs in term of expected calibration error. Our analysis reveals that, the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
 
 <h2 id="2">Datasets and Models</h2>
 To investigate the preferences of LLMs to the order of options and the differences between MCQs and LFGQs, we conduct experiments on six evaluation benchmarks.
@@ -61,8 +61,8 @@ We first find that when the LLMs are presented with some options in different or
 To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)](https://github.com/Meetyou-AI-Lab/CARE-MI) for significance testing.
 <h2 id="4">Multiple Choice Questions vs Long Form Generation Questions</h2>
 <h3 id="5">Direct Output</h3>
-<!-- <h3 id="6">Token Logits</h3> -->
-### Token Logits
+<h3 id="6">Token Logits</h3>
+
 <h3 id="7">Embeddings</h3>
 
 ## Citation
