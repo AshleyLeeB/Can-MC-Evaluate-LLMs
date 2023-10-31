@@ -100,12 +100,17 @@ From the table above, we know that the rearrangement of options makes LLMs choic
 <h2 id="4">Multiple Choice Questions vs Long Form Generation Questions</h2>
 
 <h3 id="5">Direct Output</h3>
+
+It is crucial to establish a quantitative measure for both consistency and accuracy. Consistency stands for the degree to which the LLMs are consistent with the answer to the same question when asked multiple times, and accuracy represents the times of the LLMs answer correctly to the same question when asked multiple times. The code of calculating the consistency can be found in `Consistency`.
+
 <h3 id="6">Token Logits</h3>
 <h4 id="8">Unified confidence calculation</h4>
 <h4 id="9">Expected Calibration Error</h4>
 
 
 <h3 id="7">Embeddings</h3>
+
+Our analysis reveals that the misalignment between answering MCQs and LFGQs can be reflected in their [direct outputs](#5) and [token logits](#6), so we wonder if the difference between them is also manifested in embedding space. 
 
 The code can be found in `Embeddings`.
 
