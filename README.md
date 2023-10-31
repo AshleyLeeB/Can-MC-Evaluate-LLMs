@@ -101,18 +101,14 @@ From the table above, we know that the rearrangement of options makes LLMs choic
 
 <h3 id="5">Direct Output</h3>
 
-It is crucial to establish a quantitative measure for both consistency and accuracy. Consistency stands for the degree to which the LLMs are consistent with the answer to the same question when asked multiple times, and accuracy represents the times of the LLMs answer correctly to the same question when asked multiple times. The code and test dataset of calculating the consistency and accuracy can be found in `Consistency`.
+It is crucial to establish a quantitative measure for both consistency and accuracy. Consistency stands for the degree to which the LLMs are consistent with the answer to the same question when asked multiple times, and accuracy represents the times of the LLMs answer correctly to the same question when asked multiple times. The code and test dataset of calculating the consistency and accuracy can be found in `Consistency`. 
 
 <h3 id="6">Token Logits</h3>
 
-Next, we want to compare with MCQs and LFGQs in token probability, we follow [Jiang et al., 2021](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00407/107277/How-Can-We-Know-When-Language-Models-Know-On-the) in calculating normalized probability to propose an unified confidence calculation that is suitable for MCQs, LFGQs and TFQs. The code and test dataset of unified confidence calculation can be found in `Confidence`. 
+Next, we want to compare with MCQs and LFGQs in token probability, we follow [(Jiang et al., 2021)](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00407/107277/How-Can-We-Know-When-Language-Models-Know-On-the) in calculating normalized probability to propose an unified confidence calculation that is suitable for MCQs, LFGQs and TFQs. The code and test dataset of unified confidence calculation can be found in `Confidence`. The details of calculation formula can be read in the paper.
 
-For the unified confidence calculation, we first calculate average token log probability:
-$$
-P_{avg}(Y|X) = \frac{{\sum_{i=1}^{|Y|}}P_{log}(y_i|X,y<i)}{max(1,|Y|)}
-$$
 
-The code and test dataset of unified confidence calculation can be found in `ECE`. 
+Once we get their unified confidence, we can do the model calibration [(Ahmed et al., 2020)](https://link.springer.com/chapter/10.1007/978-981-15-4728-7_5) to test whether the LLM is a well-calibrated model when under different datasets formats of evaluations. The code and test dataset of unified confidence calculation can be found in `ECE`. 
 
 
 
