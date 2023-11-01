@@ -145,7 +145,7 @@ python get_activations.py
 Then, we can visualize the features through t-Distributed stochastic neighbor embedding for dimensionality reduction. The following figure shows us the visualization of t-SNE for each layer in the  stablelm-tuned-alpha-3b, the red samples are MCQs, and the samples in green are LFGQs.
 
 <figure style="text-align: center;">
-  <img src="figs/embeddings.png" alt="Embeddings Image">
+  <img src="figs/embeddings.jpg" alt="Embeddings Image">
 </figure>
 
 ## Citation
