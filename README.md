@@ -116,7 +116,7 @@ Once we get unified confidence of the LLMs, we can do the model calibration [(Ah
 
 ### Embeddings
 
-Our analysis reveals that the misalignment between answering MCQs and LFGQs can be reflected in their [direct outputs](#5) and [token logits](#6), so we wonder if the difference between them is also manifested in embedding space. 
+Our analysis reveals that the misalignment between answering MCQs and LFGQs can be reflected in their [direct outputs](#direct-output) and [token logits](#token-logits), so we wonder if the difference between them is also manifested in embedding space. 
 
 The code can be found in `Embeddings`.
 
