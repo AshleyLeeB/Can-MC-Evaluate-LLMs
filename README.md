@@ -29,7 +29,7 @@ Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and
 2. [Datasets and Models](#2)
 3. [Are LLMs sensitive to the order of candidate answers?](#3)
 4. [Multiple Choice Questions vs Long Form Generation Questions](#4)
-5. [Citation](#citation)
+5. [Citation](#11)
 
 <h2 id="1">Overview</h2>
 
@@ -148,7 +148,7 @@ Then, we can visualize the features through t-Distributed stochastic neighbor em
   <img src="figs/embeddings.jpg" alt="Embeddings Image">
 </figure>
 
-## Citation
+<h2 id="11">Citation</h2>
 
 **If the paper, codes, or the dataset inspire you, please cite us:**
 
