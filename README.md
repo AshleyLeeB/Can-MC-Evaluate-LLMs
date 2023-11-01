@@ -72,7 +72,7 @@ We first find that when the LLMs are presented with some options in different or
   <img src="figs/order_preference_3.jpg" alt="Order Preference Image">
 </figure>
 
-To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)](https://www.biochemia-medica.com/en/journal/23/2/10.11613/BM.2013.018) for significance testing, the table of results and code can be found in `Chi-Square test`. The following table present the results of the rearrangement of options makes LLMs output different answers:
+To determine if there are significant differences in the options chosen by the LLMs in these two cases, we conduct a Chi-Square test [(McHugh, 2013)](https://www.biochemia-medica.com/en/journal/23/2/10.11613/BM.2013.018) for significance testing, the dataset of the results and code can be found in `Chi-Square test`. The following table present the results of the rearrangement of options makes LLMs output different answers:
 
 | Sou. | Met. | GPT3.5 | GPT4 | ChatGLM |
 | ---  | ---  | ---    | ---  | ---     |
