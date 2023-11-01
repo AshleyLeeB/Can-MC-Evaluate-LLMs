@@ -6,10 +6,9 @@ import itertools
 import warnings
 import re
 
-# 禁止显示所有警告
-warnings.filterwarnings('ignore')
 
-openai.api_key = "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"
+warnings.filterwarnings('ignore')
+openai.api_key = "your key"
 
 def contains_characters(string,t_ans):
     if re.search(t_ans, string, re.IGNORECASE):
