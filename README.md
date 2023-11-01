@@ -7,7 +7,7 @@
   </tr>
 </table>
 
-Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and abilities of large language models (LLMs) because of their simple format and efficient inference process. However, there are concerns about **whether MCQs can truly assess the true capabilities of LLMs**. This is particularly relevant because LLMs are often used in knowledge-intensive scenarios where they are expected to generate long-form content. Using MCQs for evaluation can introduce a misalignment between what is being tested and what is actually required in these scenarios. So we do some researches on [Are LLMs sensitive to the order of candidate answers?](#3) and [Multiple Choice Questions vs Long Form Generation Questions](#4), resulting in some interesting things. 
+Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and abilities of large language models (LLMs) because of their simple format and efficient inference process. However, there are concerns about **whether MCQs can truly assess the true capabilities of LLMs**. This is particularly relevant because LLMs are often used in knowledge-intensive scenarios where they are expected to generate long-form content. Using MCQs for evaluation can introduce a misalignment between what is being tested and what is actually required in these scenarios. We do some researches on [Are LLMs sensitive to the order of candidate answers?](#3) and [Multiple Choice Questions vs Long Form Generation Questions](#4), resulting in some interesting things. 
 
 **Authors**:
 
@@ -33,7 +33,7 @@ Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and
 
 <h2 id="1">Overview</h2>
 
-We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the **Chi-square test** of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their [direct outputs](#5), [token logits](#6), and [embeddings](#7). We propose two methods that can quantify the consistency and confidence of LLMs’ output which can be generalized to other QA evaluation benchmarks. Moreover, we compare MCQs with LFGQs and True/False questions (TFQs) in term of expected calibration error. Our analysis also wonder that whether the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
+We start by demonstrating that LLMs exhibit a order sensitivity in bilingual MCQs, the **Chi-square test** of order sensitivity indicates that the order of options is a significant factor that influences the choices made by the LLMs. To quantify the gap between MCQs and long-form generation questions (LFGQs), we conduct experiments comparing their [direct outputs](#5), [token logits](#6), and [embeddings](#7). We propose two methods that can quantify the **consistency** and **confidence** of LLMs’ output which can be generalized to other QA evaluation benchmarks. Moreover, we compare MCQs with LFGQs and True/False questions (TFQs) in term of **expected calibration error**. Our analysis also wonder that whether the misalignment between answering MCQs and LFGQs is not only reflected in their evaluation performance, but also manifested in embedding space.
 
 <h2 id="2">Datasets and Models</h2>
 To investigate the preferences of LLMs to the order of options and the differences between MCQs and LFGQs, we conduct experiments on six evaluation benchmarks.
@@ -48,9 +48,9 @@ The evaluation benchmarks that we use are listed below:
 |[ARC](https://arxiv.org/abs/1803.05457)                 | EN             |           7,787 |
 |[MATH]                                                | EN           |           300 |
 
-The samples of the benchmarks CARE-MI and MATH we use can be found in `Datasets`.
+The samples of the dataset CARE-MI and MATH we use can be found in `Datasets`.
 
-We target decoder-only models since this architecture has become the dominant choices for recent LLMs. We utilize various models for conducting different experiments, tailoring our choices based on the specific goals of each experiment. The application of the LLMs for each experiment is summarized in the following Table:
+We target decoder-only models since this architecture has become the dominant choices for recent LLMs. We utilize various models for conducting different experiments, tailoring our choices based on the specific goals of each experiment. The application of the LLMs for each experiment is summarized in the following table:
 
 |  **Model** | **Order Sensitivity** | **Patterns Decomposition** | **Direct Output** | **Token Logits** | **Embeddings** |
 |------------|-----------------------|----------------------------|-------------------|------------------|---------------:|
@@ -64,7 +64,7 @@ We target decoder-only models since this architecture has become the dominant ch
 | [Open-llama-3/7B](https://doi.org/10.48550/arXiv.2302.13971) |   |   |  | | :heavy_check_mark:|  
 | [Llama-2-7b-chat-hf](https://arxiv.org/abs/2307.09288) |   |   |  | | :heavy_check_mark:| 
 
-The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). 
+The paper is currently on [arXiv](https://arxiv.org/abs/XXXXX). [To do]
 
 <h2 id="3">Are LLMs sensitive to the order of candidate answers?</h2>
 We first find that when the LLMs are presented with some options in different orders, they consistently show a strong preference for the same position, as illustrated in the following figure. We have two cases of option order, in CASE1, the option numbering is ’ABCD’, and in CASE2, theo ption numbering is ’BACD’. The ground truth is always D. The LLM prefers wrong options in the first position in the ARC dataset.
@@ -95,7 +95,7 @@ To determine if there are significant differences in the options chosen by the L
 
 * $P<0.05$ ** $P<0.001$, $P$ in bold are larger than significance level $\alpha$. **Sou.** stands for the sources of the datasets, **Met.** represents the four metrics: $X^2$, $P$, accuracy and the accuracy gap.
 
-From the table above, we know that the rearrangement of options makes LLMs choices differ in significance, resulting in instability of the accuracy evaluation. High accuracy can mitigate significant differencesn to some extent. Moreover, There is no evident correlation between the accuracy gap and the original accuracy.
+From the table above, we know that the rearrangement of options makes LLMs choices differ in significance, resulting in instability of the accuracy evaluation. High accuracy can mitigate significant differencesn to some extent. Moreover, there is no evident correlation between the accuracy gap and the original accuracy.
 
 <h2 id="4">Multiple Choice Questions vs Long Form Generation Questions</h2>
 
@@ -108,7 +108,7 @@ It is crucial to establish a quantitative measure for both consistency and accur
 Next, we want to compare with MCQs and LFGQs in token probability, we follow [(Jiang et al., 2021)](https://direct.mit.edu/tacl/article/doi/10.1162/tacl_a_00407/107277/How-Can-We-Know-When-Language-Models-Know-On-the) in calculating normalized probability to propose an unified confidence calculation that is suitable for MCQs, LFGQs and TFQs. The code and test dataset of unified confidence calculation can be found in `Confidence`. The details of calculation formula can be read in the paper.
 
 
-Once we get their unified confidence, we can do the model calibration [(Ahmed et al., 2020)](https://link.springer.com/chapter/10.1007/978-981-15-4728-7_5) to test whether the LLM is a well-calibrated model when under different datasets formats of evaluations. The code and test dataset of unified confidence calculation can be found in `ECE`. 
+Once we get unified confidence of the LLMs, we can do the model calibration [(Ahmed et al., 2020)](https://link.springer.com/chapter/10.1007/978-981-15-4728-7_5) to test whether the LLM is a well-calibrated model when under different datasets formats of evaluation benchmarks. The code and test dataset of unified confidence calculation can be found in `ECE`. 
 
 
 
@@ -142,7 +142,7 @@ Second, you get the activations of the model:
 cd src
 python get_activations.py
 ```
-Then, we can visualize the features through t-Distributed stochastic neighbor embedding for dimensionality reduction. 
+Then, we can visualize the features through t-Distributed stochastic neighbor embedding for dimensionality reduction. The following figure shows us the visualization of t-SNE for each layer in the  stablelm-tuned-alpha-3b, the red samples are MCQs, and the samples in green are LFGQs.
 ## Citation
 
 **If the paper, codes, or the dataset inspire you, please cite us:**
