@@ -35,7 +35,7 @@ def confidence(text):
   grouped = df.groupby('Answer')
   min_values = grouped['Score'].max().reset_index(name='HigestValue')
   min_values['Count'] = grouped['Score'].count().reset_index(name='Count')['Count']
-  min_values = min_values.sort_values(by=['Count', 'HigestValue'], ascending=[False, False]).head(2)
+  min_values = min_values.sort_values(by=['Count', 'HigestValue'], ascending=[False, False]).head(4)
   min_values['confidence'] = 0
   for index, value in min_values.iterrows():
       min_values['confidence'].loc[index]= np.e**(min_values['HigestValue'].loc[index])/sum(np.e**(min_values['HigestValue']))
