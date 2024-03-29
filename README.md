@@ -1,4 +1,4 @@
-# Can multiple-choice questions really be useful in detecting the abilities of LLMs?
+<img width="430" alt="image" src="https://github.com/AshleyLeeB/Can-MC-Evaluate-LLMs/assets/64393672/ad5d9e84-5908-4f17-9f61-0c35efd2034f"># Can multiple-choice questions really be useful in detecting the abilities of LLMs?
 
 <table align="center" style="border: 1px solid white;">
   <tr>
@@ -15,7 +15,7 @@ Multiple-choice questions (MCQs) are commonly used to evaluate the knowledge and
   <ul>
     <li>Wangyue Li  (<a href="mailto:alee90792@gmail.com">alee90792@gmail.com</a>)
     <li>Liangzhi Li (<a href="mailto:liliangzhi@xiaoyouzi.com">liliangzhi@xiaoyouzi.com</a>)<sup>*</sup>
-    <li>Tong Xiang  (<a href="mailto:xiangtong@xiaoyouzi.com">xiangtong@xiaoyouzi.com</a>)
+    <li>Tong Xiang  (<a href="mailto:tongxiang39@gmail.com">tongxiang39@gmail.com</a>)
     <li>Xiao Liu (<a href="mailto:liuxiao@xiaoyouzi.com">liuxiao@xiaoyouzi.com</a>)
     <li>Wei Deng (<a href="mailto:dengwei@swufe.edu.cn">dengwei@swufe.edu.cn</a>)
     <li>Noa Garcia  (<a href="mailto:noagarcia@ids.osaka-u.ac.jp">noagarcia@ids.osaka-u.ac.jp</a>)
